@@ -17,3 +17,16 @@ body {
   border-radius: 2px;
   margin: 1px;
 }
+
+.grid > .grass {
+  background-color: rgb(45, 90, 0);
+
+}
+.grid > .stone {
+  background-color: rgb(61, 61, 61);
+
+}
+.grid > .dirt {
+  background-color: rgb(75, 49, 0);
+
+}
