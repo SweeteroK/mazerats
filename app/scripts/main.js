@@ -1,5 +1,5 @@
-const gridHeight = 30;
-const gridWidth = 20;
+const gridHeight = 29;
+const gridWidth = 19;
 
 let cells = '';
 
@@ -22,7 +22,26 @@ function setCell(x, y, material) {
   cellElement.className = material;
 }
 
+function createWalls() {
+  for (let y = 1; y < gridHeight - 1; y = y + 2) {
+    for (let x = 1; x < gridWidth - 1; x++) {
+      setCell(x, y, 'dirt');
+    }
+  }
+  for (let x = 1; x < gridWidth - 1; x = x + 2) {
+    for (let y = 1; y < gridHeight - 1; y++) {
+      setCell(x, y, 'dirt');
+    }
+  }
+}
 
+function fill(material) {
+  for (let x = 0; x < gridWidth; x++) {
+    for (let y = 0; y < gridHeight; y++) {
+      setCell(x, y, material);
+    }
+  }
+}
 
-setCell(0, 12, 'grass');
-setCell(10, 15, 'dirt');
+fill('stone');
+createWalls();

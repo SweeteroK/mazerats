@@ -15,7 +15,8 @@ body {
 .grid div {
   background-color: black;
   border-radius: 2px;
-  margin: 1px;
+  margin-top: 1px;
+  margin-left: 1px;
 }
 
 .grid > .grass {
@@ -23,7 +24,7 @@ body {
 
 }
 .grid > .stone {
-  background-color: rgb(61, 61, 61);
+  background-color: #222;
 
 }
 .grid > .dirt {
