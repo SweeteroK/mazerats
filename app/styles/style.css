@@ -31,3 +31,7 @@ body {
   background-color: rgb(75, 49, 0);
 
 }
+.grid > .player {
+  background-color: red;
+
+}

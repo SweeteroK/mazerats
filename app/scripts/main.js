@@ -1,47 +1,24 @@
-const gridHeight = 29;
-const gridWidth = 19;
+import * as grid from './grid.js';
 
-let cells = '';
+grid.fill('stone');
+grid.createWalls();
 
-for (let y = 0; y < gridHeight; y++) {
-  for (let x = 0; x < gridWidth; x++) {
-    const id = 'x' + x + 'y' + y;
-    cells = cells + `<div id="${id}"></div>\n`;
-  }
+
+// Math.random()
+// Math.floor()
+
+// getCell
+
+const player = {
+  x: -1,
+  y: -1,
+};
+
+for (let i = 0; i < 10; i++) {
+  do {
+    player.x = Math.floor(Math.random() * grid.gridWidth);
+    player.y = Math.floor(Math.random() * grid.gridHeight);
+  } while (grid.getCell(player.x, player.y) === 'stone'); 
+  
+  grid.setCell(player.x, player.y, 'player')
 }
-
-const grid = document.getElementById('grid');
-grid.style.gridTemplateColumns = `repeat(${gridWidth}, 30px)`;
-grid.style.gridTemplateRows = `repeat(${gridHeight}, 30px)`;
-
-grid.innerHTML = cells;
-
-function setCell(x, y, material) {
-  const id = 'x' + x + 'y' + y;
-  const cellElement = document.getElementById(id);
-  cellElement.className = material;
-}
-
-function createWalls() {
-  for (let y = 1; y < gridHeight - 1; y = y + 2) {
-    for (let x = 1; x < gridWidth - 1; x++) {
-      setCell(x, y, 'dirt');
-    }
-  }
-  for (let x = 1; x < gridWidth - 1; x = x + 2) {
-    for (let y = 1; y < gridHeight - 1; y++) {
-      setCell(x, y, 'dirt');
-    }
-  }
-}
-
-function fill(material) {
-  for (let x = 0; x < gridWidth; x++) {
-    for (let y = 0; y < gridHeight; y++) {
-      setCell(x, y, material);
-    }
-  }
-}
-
-fill('stone');
-createWalls();
