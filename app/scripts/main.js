@@ -2,12 +2,8 @@ import * as grid from './grid.js';
 
 grid.fill('stone');
 grid.createWalls();
+grid.fillArea(1, 10, 15, 20, 'grass');
 
-
-// Math.random()
-// Math.floor()
-
-// getCell
 
 const player = {
   x: -1,
@@ -22,3 +18,4 @@ for (let i = 0; i < 10; i++) {
   
   grid.setCell(player.x, player.y, 'player')
 }
+

@@ -1,8 +1,10 @@
 {
-  "scripts":{
-    "start": "live-server app"
+  "scripts": {
+    "start": "live-server app",
+    "tsc": "tsc"
   },
   "dependencies": {
-    "live-server": "^1.2.1"
+    "live-server": "^1.2.1",
+    "typescript": "^4.6.3"
   }
 }
