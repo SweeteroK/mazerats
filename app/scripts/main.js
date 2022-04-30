@@ -2,7 +2,6 @@ import * as grid from './grid.js';
 
 grid.fill('stone');
 grid.createWalls();
-grid.fillArea(1, 10, 15, 20, 'grass');
 
 
 const player = {
@@ -10,7 +9,7 @@ const player = {
   y: -1,
 };
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i < 1; i++) {
   do {
     player.x = Math.floor(Math.random() * grid.gridWidth);
     player.y = Math.floor(Math.random() * grid.gridHeight);
@@ -19,3 +18,25 @@ for (let i = 0; i < 10; i++) {
   grid.setCell(player.x, player.y, 'player')
 }
 
+function keyHandler(evt) {
+  let newPlayerX = player.x;
+  let newPlayerY = player.y;
+  if (evt.key === 'ArrowUp') {
+    newPlayerY--;
+  }
+  if (evt.key === 'ArrowDown') {
+    newPlayerY++;
+  }
+  if (evt.key === 'ArrowLeft') {
+    newPlayerX--;
+  }
+  if (evt.key === 'ArrowRight') {
+    newPlayerX++;
+  }
+  grid.setCell(player.x, player.y, 'dirt');
+  grid.setCell(newPlayerX, newPlayerY, 'player');
+  player.x = newPlayerX;
+  player.y = newPlayerY;
+}
+
+window.addEventListener('keydown', keyHandler)
