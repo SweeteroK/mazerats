@@ -19,8 +19,10 @@ for (let i = 0; i < 1; i++) {
 }
 
 function keyHandler(evt) {
+  
   let newPlayerX = player.x;
   let newPlayerY = player.y;
+
   if (evt.key === 'ArrowUp') {
     newPlayerY--;
   }
@@ -32,6 +34,13 @@ function keyHandler(evt) {
   }
   if (evt.key === 'ArrowRight') {
     newPlayerX++;
+  }
+
+  let nextCellMaterial = grid.getCell(newPlayerX, newPlayerY)
+  console.log(nextCellMaterial);
+
+  if (nextCellMaterial === 'stone') {
+    return;
   }
   grid.setCell(player.x, player.y, 'dirt');
   grid.setCell(newPlayerX, newPlayerY, 'player');
